@@ -29,7 +29,7 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--line);
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .22em; font-size: 15px; }
-.brand-mark { width: 26px; height: 24px; fill: currentColor; }
+.brand-logo { height: 22px; width: auto; display: block; }
 .nav nav { display: flex; align-items: center; gap: 28px; font-size: 13px; font-weight: 500; letter-spacing: .06em; }
 .nav nav a:hover { opacity: .6; }
 
@@ -55,8 +55,9 @@ ul { list-style: none; }
   padding: clamp(64px, 12vw, 140px) clamp(20px, 5vw, 56px);
   text-align: center;
 }
-.hero-mark { width: 84px; height: 76px; fill: var(--ink); margin-bottom: 28px; }
-.hero-mark.small { width: 52px; height: 47px; fill: var(--paper); margin-bottom: 20px; }
+.hero-logo { height: clamp(150px, 26vw, 250px); width: auto; margin: 0 auto 28px; display: block; }
+.contact-logo { height: 64px; width: auto; margin-bottom: 20px; }
+.foot-logo { height: 20px; width: auto; }
 .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--mute); margin-bottom: 20px; }
 h1 { font-size: clamp(40px, 8vw, 92px); font-weight: 700; letter-spacing: .08em; line-height: 1.05; }
 .tagline-big { font-size: clamp(18px, 2.6vw, 28px); font-weight: 300; letter-spacing: .18em; margin: 18px 0 32px; }
