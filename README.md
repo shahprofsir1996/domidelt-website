@@ -1,1 +1,52 @@
-# domidelt-website
+# DOMIDELT
+
+Brand website for **DOMIDELT / Project Delta: Diagnose. Design. Deliver.**
+
+A plain static site (HTML + CSS, no build step), so it deploys on Cloudflare Pages in seconds.
+
+## Files
+
+- `index.html`: the whole site
+- `styles.css`: all styling
+- `favicon.svg`: browser tab icon
+
+## Put it on GitHub
+
+1. Create a new empty repository on github.com (for example `domidelt-website`). Do not add a README there.
+2. In this folder, run:
+
+```bash
+git init
+git add .
+git commit -m "Initial DOMIDELT site"
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/domidelt-website.git
+git push -u origin main
+```
+
+## Deploy on Cloudflare Pages
+
+1. Log in to the Cloudflare dashboard and go to **Workers & Pages**.
+2. Click **Create** and choose **Pages**, then **Connect to Git**.
+3. Authorise GitHub and select the `domidelt-website` repository.
+4. Build settings:
+   - Framework preset: **None**
+   - Build command: *(leave empty)*
+   - Build output directory: `/`
+5. Click **Save and Deploy**. You get a `*.pages.dev` URL straight away.
+
+From now on, every `git push` to `main` redeploys the site automatically.
+
+## Connect your domain
+
+In your Pages project, open **Custom domains**, then **Set up a custom domain**, and enter `domidelt.com` (or your domain). If the domain is already on Cloudflare DNS, the records are added for you.
+
+## Things to change before launch
+
+- The email address in `index.html` (search for `hello@domidelt.com`)
+- Add your real logo file and swap it in for the triangle mark if you like
+- Course pages: each "Enquire" link currently points to the contact section. Later you can add `/project-profit/`, `/project-360/` and so on as separate pages.
+
+## Adding a new Project later
+
+Copy one `<article class="card project">` block in `index.html`, change the name, subtitle and list. The layout adapts automatically.
