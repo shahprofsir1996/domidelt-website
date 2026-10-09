@@ -124,3 +124,60 @@ footer .micro { margin: 14px 0; }
   .card.wide { grid-template-columns: 1fr; }
   .cols { columns: 1; }
 }
+
+/* ---------- PROJECT PAGES ---------- */
+.page-hero { max-width: var(--max); margin: 0 auto; padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 56px) 24px; }
+.crumbs { font-size: 12px; letter-spacing: .08em; color: var(--mute); margin-bottom: 36px; }
+.crumbs a:hover { color: var(--ink); text-decoration: underline; }
+.page-title { font-size: clamp(30px, 5.4vw, 60px); font-weight: 700; letter-spacing: .02em; line-height: 1.1; max-width: 900px; margin-bottom: 18px; }
+.tagline-page { font-size: clamp(16px, 2vw, 20px); font-weight: 500; margin-bottom: 20px; max-width: 760px; }
+.lead.left { margin-left: 0; margin-right: 0; }
+.cta-row.left { justify-content: flex-start; margin-bottom: 0; }
+.section.tight { padding-top: 40px; }
+
+.chips-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 8px; }
+.chips-nav a { padding: 10px 16px; border: 1px solid var(--ink); font-size: 13px; font-weight: 500; transition: .2s; }
+.chips-nav a b { font-weight: 700; margin-right: 6px; color: var(--mute); }
+.chips-nav a:hover { background: var(--ink); color: var(--paper); }
+.chips-nav a:hover b { color: #bbb; }
+.toolbar { display: flex; gap: 12px; margin: 20px 0 32px; flex-wrap: wrap; }
+button.btn { font-family: inherit; cursor: pointer; }
+
+.topics { display: grid; gap: 28px; }
+.topic { border: 1px solid var(--line); padding: clamp(24px, 4vw, 40px); scroll-margin-top: 90px; background: var(--paper); }
+.topic header { margin-bottom: 20px; }
+.topic h3 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 8px; }
+.diag { font-size: 17px; color: #333; font-weight: 500; }
+
+.checklist { border: 1px solid var(--ink); margin-bottom: 24px; }
+.checklist summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 20px; font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.checklist summary::-webkit-details-marker { display: none; }
+.checklist summary::after { content: "+"; font-size: 22px; font-weight: 400; margin-left: auto; padding-left: 12px; }
+.checklist[open] summary::after { content: "–"; }
+.checklist[open] summary { background: var(--ink); color: var(--paper); }
+.count { font-size: 12px; font-weight: 500; letter-spacing: .04em; text-transform: none; opacity: .75; }
+.checklist ul { padding: 8px 20px 4px; }
+.checklist li { border-bottom: 1px solid var(--line); }
+.checklist li:last-child { border-bottom: 0; }
+.checklist label { display: flex; gap: 14px; align-items: flex-start; padding: 13px 0; cursor: pointer; font-size: 15px; }
+.checklist input { margin-top: 4px; width: 18px; height: 18px; flex: none; accent-color: var(--ink); }
+.hint { padding: 0 20px 18px; font-size: 12px; color: var(--mute); }
+
+.deliver { background: var(--alt); padding: 24px 28px; border-left: 4px solid var(--ink); }
+.deliver h4 { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 10px; }
+.deliver p { font-size: 16px; color: #222; }
+
+.flow { list-style: none; margin: 36px 0 36px; counter-reset: s; display: grid; gap: 0; max-width: 900px; }
+.flow li { counter-increment: s; display: grid; grid-template-columns: 56px 150px 1fr; gap: 12px; align-items: baseline; padding: 20px 0; border-top: 1px solid #444; }
+.flow li::before { content: "0" counter(s); color: #888; font-size: 13px; letter-spacing: .2em; }
+.flow strong { letter-spacing: .2em; font-size: 14px; }
+.flow span { color: #ddd; }
+.closing { font-size: clamp(16px, 2vw, 20px); font-weight: 600; letter-spacing: .02em; border-top: 2px solid var(--paper); padding-top: 24px; max-width: 900px; }
+.split.light { border-color: #ccc; }
+.split.light:hover { background: var(--ink); color: var(--paper); }
+
+@media (max-width: 760px) {
+  .flow li { grid-template-columns: 40px 1fr; }
+  .flow span { grid-column: 2; }
+  .deliver { padding: 20px; }
+}
