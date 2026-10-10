@@ -8,7 +8,7 @@ A plain static site (HTML + CSS, no build step), so it deploys on Cloudflare Pag
 
 - `index.html`: the whole site
 - `styles.css`: all styling
-- `project-profit/index.html`, `project-360/index.html`: Project pages (served at `/project-profit/` and `/project-360/`)
+- `project-profit/`, `project-360/`, `project-next/`, `project-edge/`: the four Project pages, each with its own `index.html`
 - `assets/`: logo files (full lockup, mono D, wordmark, white versions, favicons)
 
 ## Put it on GitHub
@@ -45,7 +45,7 @@ In your Pages project, open **Custom domains**, then **Set up a custom domain**,
 ## Things to change before launch
 
 - The email address in `index.html` (search for `hello@domidelt.com`)
-- Project pages: Project Profit and Project 360 are built. Project Next and Project Edge still point to the contact section until their pages are added (`/project-next/`, `/project-edge/`).
+- Project pages: all four are built. To add another later (for example Project AI), copy a project folder and edit it, then add a card to `index.html`.
 
 ## Adding a new Project later
 
