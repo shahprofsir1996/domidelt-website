@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>DOMIDELT | Project Delta: Diagnose. Design. Deliver.</title>
   <meta name="description" content="DOMIDELT creates change solutions for business owners and professionals. Project Delta: Diagnose. Design. Deliver.">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -16,7 +17,7 @@
 
 <header class="nav">
   <a class="brand" href="#top" aria-label="DOMIDELT home">
-    <img src="assets/logo-wordmark.png" alt="DOMIDELT" class="brand-logo">
+    <picture><source media="(prefers-color-scheme: dark)" srcset="assets/logo-wordmark-white.png"><img src="assets/logo-wordmark.png" alt="DOMIDELT" class="brand-logo"></picture>
   </a>
   <nav>
     <a href="#delta-method">Project Delta</a>
@@ -30,15 +31,14 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="assets/logo.png" alt="DOMIDELT" class="hero-logo">
+    <picture><source media="(prefers-color-scheme: dark)" srcset="assets/logo-white.png"><img src="assets/logo.png" alt="DOMIDELT" class="hero-logo"></picture>
     <h1>PROJECT DELTA</h1>
-    <p class="tagline-big">Diagnose. Design. Deliver.</p>
     <p class="lead">Businesses change when people change the way they think, decide and work. We help business owners and employees analyse problems, identify opportunities and make meaningful changes.</p>
     <div class="cta-row">
       <a class="btn" href="#business-owner">I'm a Business Owner</a>
       <a class="btn btn-outline" href="#employee">I'm a Professional</a>
     </div>
-    <p class="micro">TRANSFORM&nbsp;&nbsp;/&nbsp;&nbsp;DEVELOP&nbsp;&nbsp;/&nbsp;&nbsp;GROW</p>
+    <p class="micro">DIAGNOSE&nbsp;&nbsp;/&nbsp;&nbsp;DESIGN&nbsp;&nbsp;/&nbsp;&nbsp;DELIVER</p>
   </section>
 
   <!-- DELTA METHOD -->
@@ -186,18 +186,23 @@
     <img src="assets/logo-mono-white.png" alt="" class="contact-logo">
     <h2>Ready to change something?</h2>
     <p class="lead">Tell us what needs to change. We'll help you diagnose it, design it and deliver it.</p>
-    <!-- TODO: replace with your real email -->
     <a class="btn btn-light" href="mailto:hello@domidelt.com">hello@domidelt.com</a>
+    <p class="contact-lines">
+      <a href="tel:+971553836096">+971 55 383 6096</a>
+      <a href="tel:+919656101996">+91 9656 101 996</a>
+    </p>
   </section>
 
 </main>
 
 <footer>
-  <div class="foot-brand">
-    <img src="assets/logo-wordmark.png" alt="DOMIDELT" class="foot-logo">
-  </div>
-  <p>Diagnose. Design. Deliver.</p>
-  <p class="micro">TRANSFORM&nbsp;&nbsp;/&nbsp;&nbsp;DEVELOP&nbsp;&nbsp;/&nbsp;&nbsp;GROW</p>
+  <div class="foot-brand"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/logo-wordmark-white.png"><img src="assets/logo-wordmark.png" alt="DOMIDELT" class="foot-logo"></picture></div>
+  <p class="micro">DIAGNOSE&nbsp;&nbsp;/&nbsp;&nbsp;DESIGN&nbsp;&nbsp;/&nbsp;&nbsp;DELIVER</p>
+  <p class="foot-contact">
+    <a href="tel:+971553836096">+971 55 383 6096</a>
+    <a href="tel:+919656101996">+91 9656 101 996</a>
+    <a href="mailto:hello@domidelt.com">hello@domidelt.com</a>
+  </p>
   <p class="copy">&copy; <span id="y"></span> DOMIDELT. All rights reserved.</p>
 </footer>
 

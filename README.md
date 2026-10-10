@@ -44,7 +44,7 @@ In your Pages project, open **Custom domains**, then **Set up a custom domain**,
 
 ## Things to change before launch
 
-- The email address in `index.html` (search for `hello@domidelt.com`)
+- Contact details (phones and `hello@domidelt.com`) appear in `index.html` and the four project pages. Search for the number or email to change them everywhere.
 - Project pages: all four are built. To add another later (for example Project AI), copy a project folder and edit it, then add a card to `index.html`.
 
 ## Adding a new Project later
