@@ -20,9 +20,11 @@
     <picture><source media="(prefers-color-scheme: dark)" srcset="../assets/logo-wordmark-white.png"><img src="../assets/logo-wordmark.png" alt="DOMIDELT" class="brand-logo"></picture>
   </a>
   <nav>
-    <a href="../#delta-method">Project Delta</a>
-    <a href="../#business-owner">Business Owners</a>
-    <a href="../#employee">Professionals</a>
+    <a href="../#problems">Problems</a>
+    <a href="../#approach">Approach</a>
+    <a href="../#solutions">Solutions</a>
+    <a href="../#receive">What you receive</a>
+    <a href="../#about">About</a>
     <a href="mailto:hello@domidelt.com?subject=Enquiry%3A%20Project%20Next" class="btn btn-small">Get in touch</a>
   </nav>
 </header>
@@ -227,6 +229,8 @@ all.forEach(function(d){
     c.textContent = d.querySelectorAll('input:checked').length + ' of ' + t + ' ticked';
   });
 });
+// open the checklist named in the URL (e.g. #cash-flow)
+try { if (location.hash) { var h = document.querySelector(location.hash + ' details'); if (h) h.open = true; } } catch (e) {}
 // open a checklist when its chip is clicked
 document.querySelectorAll('.chips-nav a').forEach(function(a){
   a.addEventListener('click', function(){
