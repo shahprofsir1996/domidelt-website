@@ -184,64 +184,91 @@
   <section id="receive" class="section alt">
     <p class="eyebrow">What a client receives</p>
     <h2>Tangible outputs, not just training.</h2>
-    <div class="recv">
+    <p class="lead left">Click a box to see what's inside.</p>
+    <div class="boxes">
 
-      <article class="recv-card span2">
-        <p class="recv-tag">Diagnostic checklist <span class="badge real">Real sample</span></p>
-        <p class="recv-sub">Twelve focused questions per topic show you where the gaps are. Try five from Project Profit, Cash Flow:</p>
-        <ul class="checks" id="sample-checks">
-          <li><label><input type="checkbox"><span>Do you maintain a regular cash flow forecast?</span></label></li>
-          <li><label><input type="checkbox"><span>Can you predict your cash position over the next 4–13 weeks?</span></label></li>
-          <li><label><input type="checkbox"><span>Do you know how much cash your business needs to operate?</span></label></li>
-          <li><label><input type="checkbox"><span>Do customers pay within the agreed credit period?</span></label></li>
-          <li><label><input type="checkbox"><span>Do you regularly review overdue receivables?</span></label></li>
-        </ul>
-        <p class="recv-foot"><span id="sample-count">0 of 5 ticked</span> · Every question you can't tick is a gap worth looking at. <a class="inline" href="project-profit/#cash-flow">See all 12 →</a></p>
-      </article>
-
-      <article class="recv-card">
-        <p class="recv-tag">Assessment report <span class="badge">Illustrative example</span></p>
-        <p class="recv-sub">A written assessment of strengths, gaps and priorities.</p>
-        <ol class="outline">
-          <li>Summary of findings</li>
-          <li>Strengths</li>
-          <li>Gaps and risks</li>
-          <li>Priorities</li>
-          <li>Recommended next steps</li>
-        </ol>
-      </article>
-
-      <article class="recv-card span2">
-        <p class="recv-tag">Action plan <span class="badge">Illustrative example</span></p>
-        <p class="recv-sub">Priorities, actions, owners and deadlines.</p>
-        <table class="mini">
-          <thead><tr><th>Priority</th><th>Action</th><th>Owner</th><th>Deadline</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Example action</td><td>Owner</td><td>Date</td></tr>
-            <tr><td>2</td><td>Example action</td><td>Owner</td><td>Date</td></tr>
-            <tr><td>3</td><td>Example action</td><td>Owner</td><td>Date</td></tr>
-          </tbody>
-        </table>
-      </article>
-
-      <article class="recv-card">
-        <p class="recv-tag">Dashboard <span class="badge">Illustrative example</span></p>
-        <p class="recv-sub">Revenue, costs, margins and cash flow in one view.</p>
-        <div class="dash" aria-hidden="true">
-          <div><span>Revenue</span><i style="--w:78%"></i></div>
-          <div><span>Costs</span><i style="--w:54%"></i></div>
-          <div><span>Margin</span><i style="--w:36%"></i></div>
-          <div><span>Cash flow</span><i style="--w:62%"></i></div>
+      <details class="box">
+        <summary>
+          <span class="box-title">Diagnostic checklist</span>
+          <span class="box-desc">Twelve focused questions per topic show you where the gaps are.</span>
+          <span class="badge real">Real sample</span>
+        </summary>
+        <div class="box-body">
+          <p class="recv-sub">Try five questions from Project Profit, Cash Flow:</p>
+          <ul class="checks" id="sample-checks">
+            <li><label><input type="checkbox"><span>Do you maintain a regular cash flow forecast?</span></label></li>
+            <li><label><input type="checkbox"><span>Can you predict your cash position over the next 4–13 weeks?</span></label></li>
+            <li><label><input type="checkbox"><span>Do you know how much cash your business needs to operate?</span></label></li>
+            <li><label><input type="checkbox"><span>Do customers pay within the agreed credit period?</span></label></li>
+            <li><label><input type="checkbox"><span>Do you regularly review overdue receivables?</span></label></li>
+          </ul>
+          <p class="recv-foot"><span id="sample-count">0 of 5 ticked</span> · Every question you can't tick is a gap worth looking at. <a class="inline" href="project-profit/#cash-flow">See all 12 →</a></p>
         </div>
-      </article>
+      </details>
 
-      <article class="recv-card span3">
-        <p class="recv-tag">Learning interventions <span class="badge real">From our programmes</span></p>
-        <p class="recv-sub">Practical learning that people apply at work.</p>
-        <div class="pills">
-          <span>Workshops</span><span>Simulations</span><span>Case studies</span><span>Role-play</span><span>Feedback</span>
+      <details class="box">
+        <summary>
+          <span class="box-title">Assessment report</span>
+          <span class="box-desc">A written assessment of strengths, gaps and priorities.</span>
+          <span class="badge">Illustrative example</span>
+        </summary>
+        <div class="box-body">
+          <ol class="outline">
+            <li>Summary of findings</li>
+            <li>Strengths</li>
+            <li>Gaps and risks</li>
+            <li>Priorities</li>
+            <li>Recommended next steps</li>
+          </ol>
         </div>
-      </article>
+      </details>
+
+      <details class="box">
+        <summary>
+          <span class="box-title">Action plan</span>
+          <span class="box-desc">Priorities, actions, owners and deadlines.</span>
+          <span class="badge">Illustrative example</span>
+        </summary>
+        <div class="box-body">
+          <table class="mini">
+            <thead><tr><th>Priority</th><th>Action</th><th>Owner</th><th>Deadline</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Example action</td><td>Owner</td><td>Date</td></tr>
+              <tr><td>2</td><td>Example action</td><td>Owner</td><td>Date</td></tr>
+              <tr><td>3</td><td>Example action</td><td>Owner</td><td>Date</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="box half">
+        <summary>
+          <span class="box-title">Dashboard</span>
+          <span class="box-desc">Revenue, costs, margins and cash flow in one view.</span>
+          <span class="badge">Illustrative example</span>
+        </summary>
+        <div class="box-body">
+          <div class="dash" aria-hidden="true">
+            <div><span>Revenue</span><i style="--w:78%"></i></div>
+            <div><span>Costs</span><i style="--w:54%"></i></div>
+            <div><span>Margin</span><i style="--w:36%"></i></div>
+            <div><span>Cash flow</span><i style="--w:62%"></i></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="box half">
+        <summary>
+          <span class="box-title">Learning interventions</span>
+          <span class="box-desc">Practical learning that people apply at work.</span>
+          <span class="badge real">From our programmes</span>
+        </summary>
+        <div class="box-body">
+          <div class="pills">
+            <span>Workshops</span><span>Simulations</span><span>Case studies</span><span>Role-play</span><span>Feedback</span>
+          </div>
+        </div>
+      </details>
 
     </div>
   </section>
@@ -253,8 +280,22 @@
     <div class="about-grid">
       <div>
         <p class="lead left">DOMIDELT creates change solutions for business owners and professionals, combining structured diagnostics with practical development programmes.</p>
-        <!-- TODO: replace the placeholder below with your real expertise -->
-        <div class="placeholder">[Your expertise: qualifications, years of experience, sectors and where you work]</div>
+        <article class="profile">
+          <p class="profile-name">Mr. SHAH</p>
+          <p class="profile-role">Corporate Finance &amp; Business Performance Consultant</p>
+          <p class="profile-statement">Helping SMEs and professionals improve financial decision-making, strengthen business performance, and achieve sustainable growth.</p>
+          <p class="about-label">Areas of expertise</p>
+          <div class="pills small">
+            <span>Corporate Finance</span><span>Business Performance</span><span>Financial Planning</span><span>IFRS</span><span>Leadership &amp; Personal Development</span>
+          </div>
+          <p class="about-label">Credentials</p>
+          <ul class="creds">
+            <li><strong>9 years</strong> of training &amp; consulting experience</li>
+            <li>ACCA</li>
+            <li>MSc International Business &amp; Management</li>
+            <li>BA (Hons) International Business and Finance</li>
+          </ul>
+        </article>
       </div>
       <div>
         <p class="about-label">How we work</p>
@@ -267,10 +308,8 @@
       </div>
     </div>
 
-    <!-- TODO: confirm this is your real engagement process -->
     <p class="about-label process-label">How an engagement runs</p>
     <ol class="process">
-      <li><strong>Conversation</strong><span>We learn about your business and what you want to change.</span></li>
       <li><strong>Diagnostic</strong><span>We assess the situation and identify the gaps.</span></li>
       <li><strong>Design</strong><span>We agree a tailored programme and priorities.</span></li>
       <li><strong>Delivery and review</strong><span>We deliver, measure progress and agree what comes next.</span></li>
