@@ -354,3 +354,39 @@ table.mini td { padding: 11px 10px; border-bottom: 1px solid var(--line); color:
   .box, .box.half { grid-column: auto; }
   .process { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* =====================================================
+   WHATSAPP, WORKFLOW BOXES, SINGLE-CHECKLIST PAGES
+   ===================================================== */
+.cl { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
+a.wa { display: inline-flex; align-items: center; gap: 6px; border: 1px solid currentColor; padding: 4px 10px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, color .2s; }
+a.wa:hover { background: var(--ink); color: var(--paper); border-bottom-color: var(--ink); }
+.section.dark a.wa:hover { background: #fff; color: #111; border-color: #fff; }
+a.wa .ico { width: 15px; height: 15px; flex: none; }
+.contact-lines, .foot-contact { align-items: center; }
+
+/* boxes become a numbered workflow */
+.boxes { display: flex; flex-direction: column; gap: 0; max-width: 960px; }
+.box summary { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; column-gap: 18px; padding: 22px 64px 22px 22px; }
+.box summary::after { top: 50%; transform: translateY(-50%); right: 24px; }
+.box-num { width: 44px; height: 44px; border: 2px solid var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+.box-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.box-body { padding: 18px 26px 26px 84px; }
+.flow-arrow { display: flex; align-items: center; height: 46px; padding-left: 33px; color: var(--ink); }
+.flow-arrow svg { width: 22px; height: 22px; }
+@media (max-width: 700px) {
+  .box summary { grid-template-columns: 40px minmax(0, 1fr); padding: 18px 52px 18px 16px; column-gap: 14px; row-gap: 10px; }
+  .box-num { width: 40px; height: 40px; }
+  .box summary .badge { grid-column: 2; justify-self: start; }
+  .box summary::after { right: 16px; }
+  .box-body { padding: 16px 18px 22px; }
+  .flow-arrow { padding-left: 29px; }
+}
+
+/* single-checklist project pages */
+.reset-row { margin: 4px 20px 22px; }
+.topic.single { padding: clamp(20px, 3vw, 32px); }
+
+/* uniform workflow box width */
+.boxes{align-items:stretch}
+.boxes .box{width:100%}
