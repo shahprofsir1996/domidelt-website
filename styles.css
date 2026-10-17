@@ -417,24 +417,4 @@ a.wa .ico { width: 16px; height: 16px; }
 }
 .faq-q:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-/* slide-in popup */
-.popup { position: fixed; right: 20px; bottom: 20px; z-index: 50; width: 320px; max-width: calc(100vw - 32px); background: var(--paper); color: var(--ink); border: 1px solid var(--ink); box-shadow: 0 16px 40px rgba(0,0,0,.18); padding: 22px 20px 20px; transform: translateX(calc(100% + 40px)); opacity: 0; visibility: hidden; transition: transform .45s ease, opacity .3s, visibility 0s .45s; }
-.popup.in { transform: none; opacity: 1; visibility: visible; transition: transform .45s ease, opacity .3s; }
-.popup-x { position: absolute; top: 6px; right: 10px; background: none; border: 0; color: inherit; font-size: 26px; line-height: 1; cursor: pointer; padding: 4px 6px; }
-.popup-title { font-weight: 700; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
-.popup-sub { color: var(--mute); font-size: 13px; margin: 4px 0 14px; }
-.popup form { display: flex; flex-direction: column; gap: 12px; }
-.popup label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); }
-.popup input[type=text], .popup select { font: inherit; font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 400; color: var(--ink); background: var(--paper); border: 1px solid var(--line); padding: 10px; width: 100%; border-radius: 0; }
-.popup input:focus, .popup select:focus { outline: 2px solid var(--ink); outline-offset: 0; }
-.popup-hp { position: absolute; left: -9999px; }
-.popup-msg { font-size: 12px; min-height: 0; }
-.popup-msg.err { color: #c0392b; }
-.popup-thanks { font-size: 14px; padding: 8px 0; }
-.popup .btn { width: 100%; justify-content: center; text-align: center; }
-@media (max-width: 600px) {
-  .popup { right: 8px; left: 8px; bottom: 8px; width: auto; max-width: none; padding: 16px 16px 14px; }
-  .popup-sub { display: none; }
-  .popup form { gap: 9px; }
-}
-@media (prefers-reduced-motion: reduce) { .popup, .faq-a { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .faq-a { transition: none; } }

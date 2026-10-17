@@ -9,7 +9,7 @@ A plain static site (HTML + CSS, no build step), so it deploys on Cloudflare Pag
 - `index.html`: the whole site
 - `styles.css`: all styling
 - `project-profit/`, `project-360/`, `project-next/`, `project-edge/`, `project-elevate/`, `project-impact/`: the six Project pages, each with its own `index.html`
-- `popup.js`: the slide-in "Book appointment" form (sends to your inbox via Web3Forms)
+- `popup.js`: the glass "Book an appointment" pop-up (self-contained) (sends to your inbox via Web3Forms)
 - `assets/`: logo files (full lockup, mono D, wordmark, white versions, favicons)
 
 ## Put it on GitHub
