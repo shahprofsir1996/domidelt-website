@@ -1,4 +1,5 @@
-/* DOMIDELT: glass "Book an appointment" card. Self-contained (own styles). Sends to the owner's inbox via Web3Forms. */
+/* DOMIDELT booking pop-up v3 (glass card, self-contained). Sends to the owner inbox via Web3Forms. */
+window.DMD_BOOKING = "v3";
 (function () {
   var KEY = 'a2576149-d030-4f48-98d2-29669c868c3c';
   var PROBLEMS = [
