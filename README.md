@@ -10,7 +10,7 @@ A plain static site (HTML + CSS, no build step), so it deploys on Cloudflare Pag
 - `styles.css`: all styling
 - `project-profit/`, `project-360/`, `project-next/`, `project-edge/`, `project-elevate/`, `project-impact/`: the six Project pages, each with its own `index.html`
 - `booking.js`: the glass "Book an appointment" pop-up (sends to your inbox via Web3Forms)
-- `site.js`: scroll animations, the dot network, the triangle drawing and the checklist result line
+- `site.js`: scroll animations, the dot network behind every section, the interactive triangle and the checklist result line
 - `robots.txt`, `sitemap.xml`: search engine files
 - `assets/`: logo files (full lockup, mono D, wordmark, white versions, favicons)
 

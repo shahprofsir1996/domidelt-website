@@ -533,3 +533,115 @@ a.wa .ico { width: 16px; height: 16px; }
 .hero.net-host .lead { font-size: clamp(15px, 1.6vw, 17px); margin-bottom: 24px; }
 .hero.net-host .paths { margin-bottom: 18px; }
 .hero.net-host .path { padding: 20px 22px 18px; }
+
+/* =====================================================
+   V5: compact interactive triangle, frosted glass cards,
+   stronger blurred section words
+   ===================================================== */
+.tri { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; margin: 30px 0 14px; }
+.tri .net-fig { margin: 0; max-width: 420px; width: 100%; }
+.net-fig .lbl { font-size: 15px; letter-spacing: .12em; }
+.net-fig .sub { font-size: 12px; }
+.net-fig .edge { stroke-width: 2; }
+.net-fig .hit { fill: transparent; pointer-events: all; }
+.net-fig .hot { cursor: pointer; outline: none; }
+.net-fig .hot .node, .net-fig .hot .halo { transition: transform .25s ease, opacity .25s ease; }
+.net-fig .hot:hover .node, .net-fig .hot.on .node { transform: scale(1.4); animation: none; }
+.net-fig .hot:hover .halo, .net-fig .hot.on .halo { opacity: .7; transform: scale(1.25); transform-box: fill-box; transform-origin: center; }
+.net-fig .hot:focus-visible .halo { opacity: 1; stroke-width: 2; }
+@media (max-width: 560px) { .net-fig .lbl { font-size: 18px; } .net-fig .sub { font-size: 14px; } }
+
+.tri-panel { position: relative; min-height: 250px; display: flex; }
+.tri-hint, .tri-card { width: 100%; padding: clamp(22px, 3vw, 34px); align-self: stretch; }
+.tri-hint { display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.tri-hint.off { display: none; }
+.tri-hint p, .tri-card p { color: var(--soft); }
+.tri-card .num, .tri-hint .num { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--mute); font-weight: 600; }
+.tri-card h3 { font-size: clamp(24px, 3vw, 32px); margin: 6px 0 8px; }
+.tri-card .get { margin-top: 18px; font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--mute); }
+.tri-card ul { margin-top: 8px; }
+.tri-card li { padding: 8px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.js .tri-card { display: none; }
+.js .tri-card.on { display: block; animation: dmdin .35s ease both; }
+.tri-panel { flex-direction: column; gap: 14px; }
+.js .tri-panel { display: grid; }
+@keyframes dmdin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (max-width: 820px) { .tri { grid-template-columns: minmax(0, 1fr); } .tri .net-fig { max-width: 380px; margin: 0 auto; } .tri-panel { min-height: 0; } }
+
+/* frosted glass: the blurred section word shows softly through the cards */
+.card, .problem, .topic, .box, .profile, .path, .split.light, .howto, .tri-card, .tri-hint {
+  background: rgba(255,255,255,.52);
+  -webkit-backdrop-filter: blur(10px) saturate(150%); backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255,255,255,.8);
+  box-shadow: 0 18px 44px -18px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.85);
+}
+.topic { background: rgba(255,255,255,.62); }
+.box[open] { background: rgba(255,255,255,.7); }
+.card.project:hover, .problem:hover, .path:hover { border-color: rgba(0,0,0,.55); }
+@media (prefers-color-scheme: dark) {
+  .card, .problem, .topic, .box, .profile, .path, .split.light, .howto, .tri-card, .tri-hint {
+    background: rgba(34,34,34,.5);
+    border: 1px solid rgba(255,255,255,.13);
+    box-shadow: 0 18px 44px -18px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .topic { background: rgba(30,30,30,.6); }
+  .box[open] { background: rgba(40,40,40,.65); }
+  .card.project:hover, .problem:hover, .path:hover { border-color: rgba(255,255,255,.5); }
+}
+.section[data-bg]::before { font-size: clamp(56px, 14vw, 200px); opacity: .12; filter: blur(3px); }
+.section.dark[data-bg]::before { opacity: .09; }
+@media (prefers-color-scheme: dark) { .section[data-bg]::before { opacity: .14; } }
+
+/* light mode: clearer glass so the big word reads through */
+@media (prefers-color-scheme: light) {
+  .card, .problem, .box, .profile, .path, .split.light, .howto, .tri-card, .tri-hint {
+    background: rgba(255,255,255,.38);
+    -webkit-backdrop-filter: blur(6px) saturate(160%); backdrop-filter: blur(6px) saturate(160%);
+  }
+  .topic { background: rgba(255,255,255,.55); }
+  .section[data-bg]::before { opacity: .17; }
+}
+
+/* make the glass win over older card rules (a.problem etc.) */
+:root { --glass: rgba(255,255,255,.34); --glass-solid: rgba(255,255,255,.55); --glass-line: rgba(255,255,255,.85); --glass-blur: 5px; }
+@media (prefers-color-scheme: dark) { :root { --glass: rgba(34,34,34,.5); --glass-solid: rgba(30,30,30,.62); --glass-line: rgba(255,255,255,.13); --glass-blur: 10px; } }
+body .card, body a.problem, body .box, body .profile, body a.path, body .split.light, body .howto, body .tri-card, body .tri-hint {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%); backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-line);
+}
+body .topic { background: var(--glass-solid); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%); backdrop-filter: blur(var(--glass-blur)) saturate(160%); border: 1px solid var(--glass-line); }
+body .box[open] { background: var(--glass-solid); }
+body a.problem:hover, body a.problem:focus-visible, body .card.project:hover, body a.path:hover { border-color: var(--ink); }
+
+/* =====================================================
+   V6: bold triangle, smaller section words, dots on every
+   section, compact project cards
+   ===================================================== */
+html { overflow-x: clip; }
+
+/* bold delta lines, like the logo */
+.net-fig svg.bold .edge:not(.ray) { stroke-width: 7; stroke-linecap: round; }
+.net-fig svg.bold .node { r: 13; }
+.net-fig svg.bold .halo { r: 22; }
+.net-fig .ray { stroke-width: 1; }
+
+/* blurred section words: smaller, always inside the screen */
+.section[data-bg]::before { font-size: clamp(40px, 8.5vw, 118px); letter-spacing: .03em; max-width: 96vw; }
+
+/* dots network behind every section: canvas is as wide as the screen */
+.section, .page-hero, .net-host { position: relative; isolation: isolate; }
+.section[data-bg], .page-hero[data-bg], .net-host, .section { overflow-x: visible; overflow-y: clip; }
+.net { inset: auto; top: 0; left: 50%; transform: translateX(-50%); }
+
+/* project cards: smaller, name is the link */
+.card.project { padding: 24px 26px 22px; }
+.card.project .project-name { margin-bottom: 14px; }
+.card.project h3 { margin-bottom: 6px; }
+.card.project .for { font-size: 14.5px; margin-bottom: 10px; }
+.card.project .teaser { margin-bottom: 0; }
+.card.project .stretch::after { content: ""; position: absolute; inset: 0; }
+.card.project::after { content: "\2192"; position: absolute; top: 20px; right: 24px; font-size: 20px; line-height: 1; transition: transform .2s; }
+.card.project:hover::after { transform: translateX(4px); }
+.card.project:focus-within { outline: 2px solid var(--ink); outline-offset: 3px; }
+.card.project .project-name { font-size: clamp(15px, 1.45vw, 18px); letter-spacing: .18em; margin-right: 36px; }

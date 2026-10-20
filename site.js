@@ -61,13 +61,13 @@
     c.className = 'net'; c.setAttribute('aria-hidden', 'true');
     host.insertBefore(c, host.firstChild);
     var ctx = c.getContext('2d'), W = 0, H = 0, pts = [], mx = -9999, my = -9999, live = false, raf = 0, ink = '#111';
-    function readInk() { ink = (getComputedStyle(root).getPropertyValue('--ink') || '#111').trim() || '#111'; }
+    function readInk() { ink = host.classList.contains('dark') ? '#ffffff' : ((getComputedStyle(root).getPropertyValue('--ink') || '#111').trim() || '#111'); }
     function size() {
       var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = host.clientWidth; H = host.clientHeight; if (!W || !H) return;
+      W = document.documentElement.clientWidth; H = host.clientHeight; if (!W || !H) return;
       c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var n = Math.round(Math.min(W * H / 15000, W < 600 ? 34 : 85)); pts = [];
+      var n = Math.round(Math.min(W * H / 17000, W < 600 ? 30 : 75)); pts = [];
       for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .34, vy: (Math.random() - .5) * .34, r: 1.1 + Math.random() * 1.7 });
       draw(false);
     }
@@ -92,7 +92,7 @@
       ctx.globalAlpha = 1;
     }
     function loop() { if (!live) return; draw(true); raf = requestAnimationFrame(loop); }
-    function point(x, y) { var r = host.getBoundingClientRect(); mx = x - r.left; my = y - r.top; }
+    function point(x, y) { var r = c.getBoundingClientRect(); mx = x - r.left; my = y - r.top; }
     host.addEventListener('mousemove', function (e) { point(e.clientX, e.clientY); }, { passive: true });
     host.addEventListener('touchmove', function (e) { var t = e.touches[0]; if (t) point(t.clientX, t.clientY); }, { passive: true });
     host.addEventListener('mouseleave', function () { mx = my = -9999; });
@@ -104,7 +104,7 @@
       es.forEach(function (e) { live = e.isIntersecting; cancelAnimationFrame(raf); if (live) loop(); });
     }).observe(host);
   }
-  document.querySelectorAll('.net-host').forEach(network);
+  document.querySelectorAll('.net-host, .section, .page-hero').forEach(function (h) { if (!h.querySelector(':scope > canvas.net')) network(h); });
 
   /* ---------- 5. checklist guidance: live result line ---------- */
   function wrappers() {
@@ -129,5 +129,25 @@
   });
   document.addEventListener('click', function (e) {          // Reset button clears ticks without a change event
     if (e.target && e.target.id === 'reset') setTimeout(function () { wrappers().forEach(update); }, 0);
+  });
+})();
+
+/* ---------- 6. triangle: hover / tap a corner to read its content ---------- */
+(function () {
+  var tri = document.querySelector('.tri'); if (!tri) return;
+  var hots = [].slice.call(tri.querySelectorAll('.hot')), cards = [].slice.call(tri.querySelectorAll('.tri-card')), hint = tri.querySelector('.tri-hint'), pinned = null;
+  function show(k) {
+    hots.forEach(function (h) { h.classList.toggle('on', h.dataset.k === k); });
+    cards.forEach(function (c) { c.classList.toggle('on', c.dataset.k === k); });
+    if (hint) hint.classList.toggle('off', !!k);
+  }
+  hots.forEach(function (h) {
+    var k = h.dataset.k;
+    h.addEventListener('mouseenter', function () { show(k); });
+    h.addEventListener('mouseleave', function () { show(pinned); });
+    h.addEventListener('focus', function () { show(k); });
+    h.addEventListener('blur', function () { show(pinned); });
+    h.addEventListener('click', function () { pinned = k; show(k); });
+    h.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); h.click(); } });
   });
 })();
