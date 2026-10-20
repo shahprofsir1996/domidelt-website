@@ -1,13 +1,13 @@
-/* DOMIDELT booking pop-up v3 (glass card, self-contained). Sends to the owner inbox via Web3Forms. */
-window.DMD_BOOKING = "v3";
+/* DOMIDELT booking pop-up v4 (glass card, self-contained). Sends to the owner inbox via Web3Forms. */
+window.DMD_BOOKING = "v4";
 (function () {
   var KEY = 'a2576149-d030-4f48-98d2-29669c868c3c';
   var PROBLEMS = [
-    'Sales are up, but profit isn’t',
-    'Profit on paper, but cash is always tight',
-    'Not sure what jobs cost or what to charge',
+    'Sales are growing, but profit isn’t',
+    'Profit looks fine, but cash is tight',
+    'Unsure what jobs cost or what to charge',
     'Busy, but no clear direction',
-    'Leads come in, but few become customers',
+    'Leads aren’t turning into customers',
     'Good people, but results fall short',
     'Other'
   ];
@@ -54,7 +54,7 @@ window.DMD_BOOKING = "v3";
   '@media (prefers-reduced-motion:reduce){.dmd-ov,.dmd-card{transition:none}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
-  var opts = '<option value="" disabled selected>Choose your problem</option>' +
+  var opts = '<option value="" disabled selected>Choose your challenge</option>' +
     PROBLEMS.map(function (p) { return '<option>' + p + '</option>'; }).join('');
   var ov = document.createElement('div');
   ov.className = 'dmd-ov';
@@ -67,7 +67,7 @@ window.DMD_BOOKING = "v3";
       '<form novalidate autocomplete="on">' +
         '<input type="text" name="website" class="dmd-hp" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         '<label>Name / company name<input type="text" name="name" autocomplete="organization"></label>' +
-        '<label>Your problem<select name="problem">' + opts + '</select></label>' +
+        '<label>Your challenge<select name="challenge">' + opts + '</select></label>' +
         '<label>Phone or email<input type="text" name="contact" autocomplete="email"></label>' +
         '<p class="dmd-msg" role="status"></p>' +
         '<button type="submit" class="dmd-btn">Book appointment</button>' +
@@ -77,11 +77,13 @@ window.DMD_BOOKING = "v3";
 
   var form = ov.querySelector('form'), msg = ov.querySelector('.dmd-msg'), shown = false;
   var slug = (location.pathname.match(/(project-[a-z0-9]+)/) || [])[1];
-  if (slug && PRESET.hasOwnProperty(slug)) form.problem.selectedIndex = PRESET[slug] + 1;
+  if (slug && PRESET.hasOwnProperty(slug)) form.challenge.selectedIndex = PRESET[slug] + 1;
 
+  var busy = false;   // visitor is ticking a checklist: do not interrupt
+  document.addEventListener('change', function (e) { if (e.target && e.target.type === 'checkbox') busy = true; });
   function onScroll() {
     var h = document.documentElement.scrollHeight - window.innerHeight;
-    if (!shown && h > 0 && window.scrollY / h > 0.35) { shown = true; ov.classList.add('in'); }
+    if (!shown && !busy && h > 0 && window.scrollY / h > 0.35) { shown = true; ov.classList.add('in'); }
   }
   function close() { ov.classList.remove('in'); shown = true; store.set('dmd-popup', 'done'); window.removeEventListener('scroll', onScroll); }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -95,13 +97,13 @@ window.DMD_BOOKING = "v3";
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.name.value.trim(), problem = form.problem.value, contact = form.contact.value.trim();
-    if (!name || !problem || !contact) { msg.textContent = 'Please fill in all three fields.'; return; }
+    var name = form.name.value.trim(), challenge = form.challenge.value, contact = form.contact.value.trim();
+    if (!name || !challenge || !contact) { msg.textContent = 'Please fill in all three fields.'; return; }
     msg.textContent = '';
     if (form.website.value) { thanks(); return; }               // spam trap filled: pretend success, send nothing
     var btn = form.querySelector('.dmd-btn'); btn.disabled = true; btn.textContent = 'Sending…';
     var data = { access_key: KEY, subject: 'New appointment request: DOMIDELT website', from_name: 'DOMIDELT website',
-      name: name, problem: problem, contact: contact, page: location.href };
+      name: name, challenge: challenge, contact: contact, page: location.href };
     if (contact.indexOf('@') > 0) data.email = contact;
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
       .then(function (r) { return r.json().catch(function () { return { success: false, message: 'Unexpected reply' }; }); })

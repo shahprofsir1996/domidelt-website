@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=3">
+  <link rel="stylesheet" href="../styles.css?v=4">
 </head>
 <body>
 
@@ -20,8 +20,8 @@
     <picture><source media="(prefers-color-scheme: dark)" srcset="../assets/logo-wordmark-white.png"><img src="../assets/logo-wordmark.png" alt="DOMIDELT" class="brand-logo"></picture>
   </a>
   <nav>
-    <a href="../#problems">Problems</a>
-    <a href="../#approach">Approach</a>
+    <a href="../#approach">What we do</a>
+    <a href="../#challenges">Challenges</a>
     <a href="../#solutions">Solutions</a>
     <a href="../#receive">What you receive</a>
     <a href="../#about">About</a>
@@ -30,7 +30,7 @@
 </header>
 
 <main>
-  <section class="page-hero">
+  <section class="page-hero net-host">
     <p class="crumbs"><a href="../">Home</a> / <a href="../#employee">Employee Academy</a> / Project Elevate</p>
     <p class="project-name">Project Elevate</p>
     <h1 class="page-title">AI &amp; Workplace Productivity</h1>
@@ -41,15 +41,16 @@
     </div>
   </section>
 
-  <section id="checklist" class="section tight">
+  <section id="checklist" class="section tight" data-bg="Checklist">
     <p class="eyebrow">Diagnostic checklist</p>
     <h2>Start with the questions. Then see what we deliver.</h2>
     <p class="lead left">Work through the 12 questions honestly. The gaps show you where to focus.</p>
+    <div class="howto"><strong>How to use this checklist</strong><p>Tick a question only if you can answer <b>yes</b> and explain why, with evidence if needed. If you can tick all 12 and explain each one, you are in good shape in that area and not facing a challenge there. Every box you can't tick is a gap worth looking at.</p></div>
     <article class="topic single" id="diagnostic">
       <details class="checklist" open>
         <summary>Diagnostic checklist <span class="count" data-total="12">0 of 12 ticked</span></summary>
         <ul><li><label><input type="checkbox"><span>Do you use digital tools effectively to complete your daily tasks?</span></label></li><li><label><input type="checkbox"><span>Can you use spreadsheets to organise, analyse and present information?</span></label></li><li><label><input type="checkbox"><span>Do you know how to use AI tools to improve your work productivity?</span></label></li><li><label><input type="checkbox"><span>Can you write clear prompts to get useful and relevant results from AI tools?</span></label></li><li><label><input type="checkbox"><span>Do you verify the accuracy of AI-generated information before using it?</span></label></li><li><label><input type="checkbox"><span>Can you identify repetitive tasks that could be automated or simplified?</span></label></li><li><label><input type="checkbox"><span>Do you use digital tools to reduce manual work and avoid duplication?</span></label></li><li><label><input type="checkbox"><span>Can you analyse data to identify trends, errors or opportunities for improvement?</span></label></li><li><label><input type="checkbox"><span>Do you use digital tools effectively to collaborate with colleagues?</span></label></li><li><label><input type="checkbox"><span>Can you adapt confidently when your organisation introduces new technology?</span></label></li><li><label><input type="checkbox"><span>Do you understand how to protect confidential information when using digital tools and AI?</span></label></li><li><label><input type="checkbox"><span>Do you regularly look for opportunities to improve your productivity through technology?</span></label></li></ul>
-        <p class="hint">Tick what is true for you. Every question you can't tick is a gap worth looking at. Nothing is saved or sent.</p>
+        <p class="hint">Tick a question only if you can answer yes and explain why. Every question you can't tick is a gap worth looking at. Nothing is saved or sent.</p>
         <p class="reset-row"><button type="button" class="btn btn-small btn-outline" id="reset">Reset checklist</button></p>
       </details>
       <div class="deliver">
@@ -60,7 +61,7 @@
   </section>
 
   
-<section class="section center">
+<section class="section center" data-bg="Next step">
     <h2>Ready to take the next step?</h2>
     <p class="lead">Tell us what you want to achieve and we'll help you decide where to start.</p>
     <a class="btn" href="mailto:hello@domidelt.com?subject=Enquiry%3A%20Project%20Elevate">Enquire about Project Elevate</a>
@@ -71,7 +72,7 @@
     </p>
   </section>
 
-  <section class="section alt">
+  <section class="section alt" data-bg="More">
     <p class="eyebrow">More from the Employee Academy</p>
     <div class="grid two"><a class="split light" href="../project-edge/"><h3>Project Edge</h3><p>Leadership, decision-making &amp; professional effectiveness</p><span class="arrow">View →</span></a><a class="split light" href="../project-impact/"><h3>Project Impact</h3><p>Business acumen &amp; performance</p><span class="arrow">View →</span></a></div>
   </section>
@@ -96,6 +97,7 @@ d.addEventListener('change', upd);
 document.getElementById('reset').onclick = function(){ d.querySelectorAll('input').forEach(function(i){ i.checked = false; }); upd(); };
 </script>
 
-<script src="../booking.js?v=3" defer></script>
+<script src="../site.js?v=4" defer></script>
+<script src="../booking.js?v=4" defer></script>
 </body>
 </html>
