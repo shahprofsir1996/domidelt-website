@@ -711,3 +711,7 @@ table.doc.plan td:nth-child(2) { min-width: 220px; }
 .sheet-head source { display: none; }
 body .gate.card { background: rgba(255,255,255,.84); }
 @media (prefers-color-scheme: dark) { body .gate.card { background: rgba(26,26,26,.86); } }
+
+/* V8: badge links */
+a.badge{text-decoration:none;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+a.badge:hover,a.badge:focus-visible{background:var(--ink);color:var(--bg);border-style:solid;border-color:var(--ink)}
