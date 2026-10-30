@@ -12,6 +12,8 @@ A plain static site (HTML + CSS, no build step), so it deploys on Cloudflare Pag
 - `booking.js`: the glass "Book an appointment" pop-up (sends to your inbox via Web3Forms)
 - `site.js`: scroll animations, the dot network behind every section, the interactive triangle and the checklist result line
 - `robots.txt`, `sitemap.xml`: search engine files
+- `sample-diagnostic/`, `sample-assessment/`, `sample-action-plan/`, `sample-dashboard/`, `sample-learning/`: the five sample pages opened from "What you receive" (lower part blurred)
+- `favicon.ico`: browser tab icon (the logo)
 - `assets/`: logo files (full lockup, mono D, wordmark, white versions, favicons)
 
 ## Put it on GitHub

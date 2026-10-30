@@ -1,5 +1,5 @@
-/* DOMIDELT booking pop-up v4 (glass card, self-contained). Sends to the owner inbox via Web3Forms. */
-window.DMD_BOOKING = "v4";
+/* DOMIDELT booking pop-up v5 (glass card, self-contained). Sends to the owner inbox via Web3Forms. */
+window.DMD_BOOKING = "v5";
 (function () {
   var KEY = 'a2576149-d030-4f48-98d2-29669c868c3c';
   var PROBLEMS = [
@@ -14,7 +14,7 @@ window.DMD_BOOKING = "v4";
   var PRESET = { 'project-profit': 0, 'project-360': 3, 'project-next': 2, 'project-edge': 5 };
   var store = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
                 set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
-  if (store.get('dmd-popup') === 'done') return;
+  var noAuto = store.get('dmd-popup') === 'done' || document.body.hasAttribute('data-no-auto');
 
   var css = '' +
   '.dmd-ov{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(10,10,10,.28);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s .35s}' +
@@ -83,10 +83,12 @@ window.DMD_BOOKING = "v4";
   document.addEventListener('change', function (e) { if (e.target && e.target.type === 'checkbox') busy = true; });
   function onScroll() {
     var h = document.documentElement.scrollHeight - window.innerHeight;
-    if (!shown && !busy && h > 0 && window.scrollY / h > 0.35) { shown = true; ov.classList.add('in'); }
+    if (!shown && !busy && !noAuto && h > 0 && window.scrollY / h > 0.35) { shown = true; ov.classList.add('in'); }
   }
   function close() { ov.classList.remove('in'); shown = true; store.set('dmd-popup', 'done'); window.removeEventListener('scroll', onScroll); }
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.DMD_OPEN = function () { shown = true; ov.classList.add('in'); try { form.name.focus(); } catch (e) {} };
+  document.addEventListener('click', function (e) { var t = e.target.closest && e.target.closest('[data-book]'); if (t) { e.preventDefault(); window.DMD_OPEN(); } });
   ov.querySelector('.dmd-x').onclick = close;
   ov.addEventListener('mousedown', function (e) { if (e.target === ov) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && ov.classList.contains('in')) close(); });
